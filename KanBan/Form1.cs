@@ -15,7 +15,7 @@ namespace KanBan
 {
     public partial class Form1 : Form
     {
-        // 根据配置文件获得产品类型
+        // 根据配置文件获得产品类型-------
         public String productionTypeconfig = BussinessFacde.GetConfigXml("ProductionType");
         //根据配置文件获取今日计划产量
         public String productionTodayPlan = BussinessFacde.GetConfigXml("TodayPlan");
