@@ -36,6 +36,19 @@
             this.关闭ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.LB_FishenP = new System.Windows.Forms.Label();
+            this.LB_Fished = new System.Windows.Forms.Label();
+            this.LB_TodayPlan = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.LB_ProductionType = new System.Windows.Forms.Label();
+            this.LB_PanelDate = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel19 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
@@ -53,28 +66,18 @@
             this.LB_Panel1Date = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.LB_FishenP = new System.Windows.Forms.Label();
-            this.LB_Fished = new System.Windows.Forms.Label();
-            this.LB_TodayPlan = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.LB_ProductionType = new System.Windows.Forms.Label();
-            this.LB_PanelDate = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.moduleStatus = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel13.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -147,6 +150,163 @@
             this.label25.Size = new System.Drawing.Size(95, 19);
             this.label25.TabIndex = 25;
             this.label25.Text = "调试/停机";
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel13.ContextMenuStrip = this.contextMenuStrip1;
+            this.panel13.Controls.Add(this.panel2);
+            this.panel13.Controls.Add(this.tableLayoutPanel1);
+            this.panel13.Controls.Add(this.LB_PanelDate);
+            this.panel13.Controls.Add(this.label16);
+            this.panel13.Controls.Add(this.pictureBox2);
+            this.panel13.Location = new System.Drawing.Point(3, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(807, 431);
+            this.panel13.TabIndex = 16;
+            this.panel13.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel13_MouseDoubleClick);
+            this.panel13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel13_MouseDown);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.LB_FishenP, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.LB_Fished, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.LB_TodayPlan, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label18, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label19, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label20, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label21, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.LB_ProductionType, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(50, 114);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(717, 240);
+            this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // LB_FishenP
+            // 
+            this.LB_FishenP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LB_FishenP.AutoSize = true;
+            this.LB_FishenP.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LB_FishenP.Location = new System.Drawing.Point(491, 194);
+            this.LB_FishenP.Name = "LB_FishenP";
+            this.LB_FishenP.Size = new System.Drawing.Size(93, 29);
+            this.LB_FishenP.TabIndex = 7;
+            this.LB_FishenP.Text = "62.5%";
+            // 
+            // LB_Fished
+            // 
+            this.LB_Fished.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LB_Fished.AutoSize = true;
+            this.LB_Fished.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LB_Fished.Location = new System.Drawing.Point(491, 133);
+            this.LB_Fished.Name = "LB_Fished";
+            this.LB_Fished.Size = new System.Drawing.Size(93, 29);
+            this.LB_Fished.TabIndex = 6;
+            this.LB_Fished.Text = "20 ea";
+            // 
+            // LB_TodayPlan
+            // 
+            this.LB_TodayPlan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LB_TodayPlan.AutoSize = true;
+            this.LB_TodayPlan.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LB_TodayPlan.Location = new System.Drawing.Point(491, 74);
+            this.LB_TodayPlan.Name = "LB_TodayPlan";
+            this.LB_TodayPlan.Size = new System.Drawing.Size(93, 29);
+            this.LB_TodayPlan.TabIndex = 5;
+            this.LB_TodayPlan.Text = "32 ea";
+            // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label18.Location = new System.Drawing.Point(113, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(133, 29);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "生产品种";
+            // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label19.Location = new System.Drawing.Point(83, 74);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(193, 29);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "班次计划产量";
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label20.Location = new System.Drawing.Point(83, 133);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(193, 29);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "当前完成产量";
+            // 
+            // label21
+            // 
+            this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label21.Location = new System.Drawing.Point(98, 194);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(163, 29);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "当前完成率";
+            // 
+            // LB_ProductionType
+            // 
+            this.LB_ProductionType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LB_ProductionType.AutoSize = true;
+            this.LB_ProductionType.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LB_ProductionType.Location = new System.Drawing.Point(523, 15);
+            this.LB_ProductionType.Name = "LB_ProductionType";
+            this.LB_ProductionType.Size = new System.Drawing.Size(29, 29);
+            this.LB_ProductionType.TabIndex = 4;
+            this.LB_ProductionType.Text = "1";
+            // 
+            // LB_PanelDate
+            // 
+            this.LB_PanelDate.AutoSize = true;
+            this.LB_PanelDate.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LB_PanelDate.Location = new System.Drawing.Point(541, 70);
+            this.LB_PanelDate.Name = "LB_PanelDate";
+            this.LB_PanelDate.Size = new System.Drawing.Size(250, 21);
+            this.LB_PanelDate.TabIndex = 3;
+            this.LB_PanelDate.Text = "2015.01.01  15:20:21";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.Location = new System.Drawing.Point(247, 20);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(421, 35);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "PACK 设 备 状 态 看 板";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(345, 91);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
             // panel19
             // 
@@ -304,167 +464,28 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.panel13.ContextMenuStrip = this.contextMenuStrip1;
-            this.panel13.Controls.Add(this.tableLayoutPanel1);
-            this.panel13.Controls.Add(this.LB_PanelDate);
-            this.panel13.Controls.Add(this.label16);
-            this.panel13.Controls.Add(this.pictureBox2);
-            this.panel13.Location = new System.Drawing.Point(3, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(807, 431);
-            this.panel13.TabIndex = 16;
-            this.panel13.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel13_MouseDoubleClick);
-            this.panel13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel13_MouseDown);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.LB_FishenP, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.LB_Fished, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.LB_TodayPlan, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label18, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label19, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label20, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label21, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.LB_ProductionType, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(50, 114);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(717, 240);
-            this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // LB_FishenP
-            // 
-            this.LB_FishenP.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LB_FishenP.AutoSize = true;
-            this.LB_FishenP.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LB_FishenP.Location = new System.Drawing.Point(491, 194);
-            this.LB_FishenP.Name = "LB_FishenP";
-            this.LB_FishenP.Size = new System.Drawing.Size(93, 29);
-            this.LB_FishenP.TabIndex = 7;
-            this.LB_FishenP.Text = "62.5%";
-            // 
-            // LB_Fished
-            // 
-            this.LB_Fished.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LB_Fished.AutoSize = true;
-            this.LB_Fished.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LB_Fished.Location = new System.Drawing.Point(491, 133);
-            this.LB_Fished.Name = "LB_Fished";
-            this.LB_Fished.Size = new System.Drawing.Size(93, 29);
-            this.LB_Fished.TabIndex = 6;
-            this.LB_Fished.Text = "20 ea";
-            // 
-            // LB_TodayPlan
-            // 
-            this.LB_TodayPlan.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LB_TodayPlan.AutoSize = true;
-            this.LB_TodayPlan.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LB_TodayPlan.Location = new System.Drawing.Point(491, 74);
-            this.LB_TodayPlan.Name = "LB_TodayPlan";
-            this.LB_TodayPlan.Size = new System.Drawing.Size(93, 29);
-            this.LB_TodayPlan.TabIndex = 5;
-            this.LB_TodayPlan.Text = "32 ea";
-            // 
-            // label18
-            // 
-            this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label18.Location = new System.Drawing.Point(113, 15);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(133, 29);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "生产品种";
-            // 
-            // label19
-            // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.Location = new System.Drawing.Point(83, 74);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(193, 29);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "班次计划产量";
-            // 
-            // label20
-            // 
-            this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label20.Location = new System.Drawing.Point(83, 133);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(193, 29);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "当前完成产量";
-            // 
-            // label21
-            // 
-            this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.Location = new System.Drawing.Point(98, 194);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(163, 29);
-            this.label21.TabIndex = 3;
-            this.label21.Text = "当前完成率";
-            // 
-            // LB_ProductionType
-            // 
-            this.LB_ProductionType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LB_ProductionType.AutoSize = true;
-            this.LB_ProductionType.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LB_ProductionType.Location = new System.Drawing.Point(523, 15);
-            this.LB_ProductionType.Name = "LB_ProductionType";
-            this.LB_ProductionType.Size = new System.Drawing.Size(29, 29);
-            this.LB_ProductionType.TabIndex = 4;
-            this.LB_ProductionType.Text = "1";
-            // 
-            // LB_PanelDate
-            // 
-            this.LB_PanelDate.AutoSize = true;
-            this.LB_PanelDate.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LB_PanelDate.Location = new System.Drawing.Point(541, 70);
-            this.LB_PanelDate.Name = "LB_PanelDate";
-            this.LB_PanelDate.Size = new System.Drawing.Size(250, 21);
-            this.LB_PanelDate.TabIndex = 3;
-            this.LB_PanelDate.Text = "2015.01.01  15:20:21";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label16.Location = new System.Drawing.Point(247, 20);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(421, 35);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "PACK 设 备 状 态 看 板";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(345, 91);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.moduleStatus);
+            this.panel2.Location = new System.Drawing.Point(50, 354);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(717, 45);
+            this.panel2.TabIndex = 5;
+            // 
+            // moduleStatus
+            // 
+            this.moduleStatus.AutoSize = true;
+            this.moduleStatus.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.moduleStatus.Location = new System.Drawing.Point(5, 9);
+            this.moduleStatus.Name = "moduleStatus";
+            this.moduleStatus.Size = new System.Drawing.Size(0, 29);
+            this.moduleStatus.TabIndex = 0;
             // 
             // Form1
             // 
@@ -487,13 +508,15 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -537,6 +560,8 @@
         public System.Windows.Forms.Panel panel13;
         public System.Windows.Forms.Label label25;
         public System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label moduleStatus;
     }
 }
 

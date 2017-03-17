@@ -1,4 +1,5 @@
 ﻿using MyOPC;
+using MySql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace KanBan
 {
@@ -17,7 +19,9 @@ namespace KanBan
         public String productionTypeconfig = BussinessFacde.GetConfigXml("ProductionType");
         //根据配置文件获取今日计划产量
         public String productionTodayPlan = BussinessFacde.GetConfigXml("TodayPlan");
+        public String showText = BussinessFacde.GetConfigXml("ShowText");
         public static OPCCreate OPC = null;
+        DbUtility db = new DbUtility("Data Source=" + GetXml("DataSource", "value") + ";Initial Catalog=" + GetXml("InitialCatalog", "value") + ";User ID=" + GetXml("UserId", "value") + ";pwd=" + GetXml("Password", "value"), DbProviderType.SqlServer);
         int stopSecondTimes;
         int stopMinTimers;
         public Form1()
@@ -253,7 +257,7 @@ namespace KanBan
             //开启产品上产状态线程
             OverrideTimer t1 = new OverrideTimer();
             //将用户配置的时间转换为毫秒
-            t1.Interval = 800;
+            t1.Interval = 2000;
             t1.Elapsed += new System.Timers.ElapsedEventHandler(showProductionState);
             t1.Enabled = true;
             t1.AutoReset = false;
@@ -426,20 +430,39 @@ namespace KanBan
             try
             {
                 //显示产品种类
-                LB_ProductionType.Text = productionTypeconfig;
+                BeginInvoke((MethodInvoker)delegate() { LB_ProductionType.Text = productionTypeconfig; });
+                
                 //显示今日计划
-                LB_TodayPlan.Text = productionTodayPlan+" ea";
+                BeginInvoke((MethodInvoker)delegate() { LB_TodayPlan.Text = productionTodayPlan + " ea"; });
+                
                 //显示已经完成的产量
-                int fished = Convert.ToInt32(BussinessFacde.GetOpcConfigXml("", "1", "2"));
-                LB_Fished.Text = OPC.ReadItem(fished).ToString() + " ea"; 
-              //  BeginInvoke((MethodInvoker)delegate() { LB_Fished.Text = OPC.ReadItem(fished).ToString() + " ea"; });
-                //显示完成率
-                int fishedP = Convert.ToInt32(BussinessFacde.GetOpcConfigXml("", "2", "2"));
-               // BeginInvoke((MethodInvoker)delegate() { LB_FishenP.Text = OPC.ReadItem(fishedP).ToString() + "%"; });
-                LB_FishenP.Text = OPC.ReadItem(fishedP).ToString() + "%";
-                //写给PLC今日计划产量
-                int planOfToday = Convert.ToInt32(BussinessFacde.GetOpcConfigXml("", "3", "2"));
-                OPC.WriteItem(planOfToday, productionTodayPlan);
+                int fishedControl = Convert.ToInt32(BussinessFacde.GetOpcConfigXml("", "1", "2"));
+                //if(Convert.ToInt32(OPC.ReadItem(fishedControl).ToString())==1)
+                //{
+                    string sql = "select distinct sn from OfflinePack where DT between  '" + DateTime.Now.ToString("yyyy.MM.dd") + " 00:00:00 ' and  '" + DateTime.Now.ToString("yyyy.MM.dd  HH:mm:ss")+"'" ;
+                     DataTable dt = new DataTable();
+                     dt = db.ExecuteDataTable(sql);
+                     int finishedNumber = dt.Rows.Count;
+
+                     BeginInvoke((MethodInvoker)delegate() { LB_Fished.Text = finishedNumber + " ea"; });
+                     double fishedP =(double) finishedNumber/ Convert.ToInt32(productionTodayPlan);
+
+                     BeginInvoke((MethodInvoker)delegate() { LB_FishenP.Text = fishedP.ToString("P"); });
+                     
+                //}
+                int moduleAddr = Convert.ToInt32(BussinessFacde.GetOpcConfigXml("", "4", "2"));
+                string moduleS=OPC.ReadItem(moduleAddr).ToString();
+                if (moduleS == "1")
+                {
+
+                    BeginInvoke((MethodInvoker)delegate() { moduleStatus.Text = showText; });
+                    BeginInvoke((MethodInvoker)delegate() { moduleStatus.ForeColor = Color.Red; });
+                    
+                }
+                else
+                {
+                    BeginInvoke((MethodInvoker)delegate() { moduleStatus.Text = ""; });
+                }
             }
             catch
             { 
@@ -533,6 +556,30 @@ namespace KanBan
             this.Text = this.Width.ToString() + " " + this.Height.ToString();
 
         }
-        
+        /// <summary>
+        /// 读取数据库和功能配置文件文件
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="attribute"></param>
+        /// <returns></returns>
+        public static string GetXml(string node, string attribute)
+        {
+            string result = null;
+            XmlDocument xmlDoc = new XmlDocument();
+            string addr = "DataBaseMap.xml";
+            xmlDoc.Load(addr);
+            XmlNode nd;
+            nd = xmlDoc.SelectSingleNode("Config");
+            XmlNodeList xnl = nd.ChildNodes;
+            foreach (XmlNode xn in xnl)
+            {
+                XmlElement xe = (XmlElement)xn;
+                if (xe.Name == node)
+                {
+                    result = xe.GetAttribute(attribute);
+                }
+            }
+            return result;
+        }
     }
 }
